@@ -3,31 +3,31 @@ import {Icon} from "@iconify/react"
 import {useParams} from "react-router-dom"
 import axios from "axios"
 
-export default function AddPublications(props) {
+export default function AddAwards(props) {
   const {profileId} = useParams()
-  const {setUpdatedPublication} = props
+  const {setUpdatedAwards} = props
 
   const [isLoading, setIsLoading] = React.useState(false)
 
-  const [publication, setPublication] = React.useState()
+  const [awards, setAwards] = React.useState()
 
-  const handlePublication = (e) => {
-    setPublication(e.target.value)
+  const handleAwards = (e) => {
+    setAwards(e.target.value)
   }
 
   const handleSave = () => {
     setIsLoading(true)
     axios
-      .put(`http://localhost:3000/api/v1/pub/${profileId}`, {
+      .put(`http://localhost:3000/api/v1/awards/${profileId}`, {
         params: {
           id: profileId,
         },
-        updatedPublication: publication,
+        updatedAwards: awards,
       })
       .then((res) => {
         setIsLoading(false)
         props.closeModal()
-        setUpdatedPublication(res.data.publication)
+        setUpdatedAwards(res.data.awards)
         console.log(res.data)
       })
       .catch((err) => console.log(err))
@@ -45,11 +45,11 @@ export default function AddPublications(props) {
 
         <div className="pt-12 mx-4 pb-8 lg:mx-6 lg:pt-20 lg:pb-16">
           <textarea
-            placeholder="Add publication"
+            placeholder="Add Awards"
             className="border border-black px-2 py-1 text-xl w-full  placeholder:text-black placeholder:font-bold"
-            value={publication}
+            value={awards}
             name="email"
-            onChange={handlePublication}
+            onChange={handleAwards}
           />
 
           <button
