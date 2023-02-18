@@ -1,17 +1,12 @@
 import React from "react"
 
-export default function ConferenceJournalContent() {
-  const journals = [
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus illum asperiores vero iste",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus illum asperiores vero iste",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus illum asperiores vero iste",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus illum asperiores vero iste",
-  ]
-
-  const journalsList = journals.map((journal) => <li>{journal}</li>)
+export default function ConferenceJournalContent({journals}) {
+  const journalsList = journals.journals.map((journal, index) => (
+    <li key={index}>{journal}</li>
+  ))
   return (
     <div className="mt-2 ml-4">
-      <li>{journalsList}</li>
+      <ul className="list-disc">{journalsList}</ul>
     </div>
   )
 }

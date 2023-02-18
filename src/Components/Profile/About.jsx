@@ -1,27 +1,61 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {Icon} from "@iconify/react"
+import Modal from "react-modal"
+import AddAbout from "./AddAbout"
+import axios from "axios"
+import {useParams} from "react-router-dom"
 
-export default function About() {
+export default function About(props) {
+  const {profileId} = useParams()
+  const [modalIsOpen, setModalIsOpen] = React.useState(false)
+
+  const customStyles = {
+    overlay: {
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+    },
+    content: {
+      height: "fit-content",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      padding: 0,
+      width: "50vw",
+    },
+  }
+
+  function openModal() {
+    setModalIsOpen(true)
+  }
+
+  function closeModal() {
+    setModalIsOpen(false)
+  }
+
   return (
-    <div className="mt-5">
-      <div className="flex justify-between">
-        <h1 className="text-2xl text-secondary font-medium">About</h1>
-        <Icon icon="material-symbols:add" className="text-4xl cursor-pointer" />
+    <>
+      <div className="mt-5">
+        <div className="flex justify-between">
+          <h1 className="text-2xl text-secondary font-medium">About</h1>
+          <Icon
+            icon="material-symbols:add"
+            className="text-4xl cursor-pointer"
+            onClick={openModal}
+          />
+        </div>
+        <p className="mt-2 ">{props.updatedAbout}</p>
       </div>
-      <p className="mt-2 ">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus
-        delectus sit ex, quos at, nobis placeat dolor voluptas sint tenetur vel
-        blanditiis ducimus necessitatibus molestiae ratione. Nobis magnam
-        quisquam doloremque autem reiciendis culpa necessitatibus recusandae
-        impedit odit nostrum hic iusto iure ea tempore soluta iste accusantium
-        explicabo, cumque ipsum blanditiis!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus
-        delectus sit ex, quos at, nobis placeat dolor voluptas sint tenetur vel
-        blanditiis ducimus necessitatibus molestiae ratione. Nobis magnam
-        quisquam doloremque autem reiciendis culpa necessitatibus recusandae
-        impedit odit nostrum hic iusto iure ea tempore soluta iste accusantium
-        explicabo, cumque ipsum blanditiis!
-      </p>
-    </div>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        ariaHideApp={false}
+      >
+        <AddAbout
+          closeModal={closeModal}
+          setUpdatedAbout={props.setUpdatedAbout}
+        />
+      </Modal>
+    </>
   )
 }

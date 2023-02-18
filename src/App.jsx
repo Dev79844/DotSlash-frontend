@@ -10,7 +10,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/profile" element={<Profile/>} />
+          <Route path="/profile/:profileId" element={<Profile/>} />
         </Routes>
       </BrowserRouter>
     </>

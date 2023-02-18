@@ -1,19 +1,14 @@
 import React from "react"
 
-export default function AwardsContent() {
-  const awards = [
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus illum asperiores vero iste",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus illum asperiores vero iste",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus illum asperiores vero iste",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus illum asperiores vero iste",
-  ]
+export default function AwardsContent({awards}) {
+  // console.log(awards.awards)
 
-  const awardsList = awards.map((award) => (
-    <li>{award}</li>
+  const awardsList = awards.awards.map((award, index) => (
+    <li key={index}>{award}</li>
   ))
   return (
     <div className="mt-2 ml-4">
-      <li>{awardsList}</li>
+      <ul className="list-disc">{awardsList}</ul>
     </div>
   )
 }
