@@ -5,19 +5,19 @@ import Login from "./Login"
 export default function Navbar() {
   const [modalIsOpen, setModalIsOpen] = React.useState(false)
 
- const customStyles = {
-   overlay: {
-     backgroundColor: "rgba(0, 0, 0, 0.8)",
-   },
-   content: {
-     height: "fit-content",
-     top: "50%",
-     left: "50%",
-     transform: "translate(-50%, -50%)",
-     padding: 0,
-     width: "50vw",
-   },
- }
+  const customStyles = {
+    overlay: {
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+    },
+    content: {
+      height: "fit-content",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      padding: 0,
+      width: "50vw",
+    },
+  }
 
   function openModal() {
     setModalIsOpen(true)
@@ -29,8 +29,10 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="flex justify-between px-16 py-1 text-2xl">
-        <h1>LOGO</h1>
+      <div className="flex justify-between px-16 py-1 text-2xl mt-8">
+        <h1 className="font-bold text-3xl">
+          Only<span className="text-secondary">Grants</span>
+        </h1>
         <h1 className="cursor-pointer" onClick={openModal}>
           Login
         </h1>
