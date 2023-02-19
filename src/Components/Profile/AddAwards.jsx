@@ -27,7 +27,7 @@ export default function AddAwards(props) {
       .then((res) => {
         setIsLoading(false)
         props.closeModal()
-        setUpdatedAwards(res.data.awards)
+        setUpdatedAwards(res.data[0].awards)
         console.log(res.data)
       })
       .catch((err) => console.log(err))

@@ -11,8 +11,6 @@ import {useParams} from "react-router-dom"
 import axios from "axios"
 
 export default function Profile() {
-  const location = useLocation()
-  const data = location.state.data
   // console.log(data)
 
   const {profileId} = useParams()
@@ -35,14 +33,17 @@ export default function Profile() {
       })
       .then((res) => {
         setIsLoading(false)
-        setUpdatedAbout(res.data.bio)
-        setUpdatedPublication(res.data.publication)
-        setUpdatedAwards(res.data.awards)
-        setUpdatedConference(res.data.conference)
-        setUpdatedBookCh(res.data.bookChapters)
+        console.log(res.data[0])
+        setUpdatedAbout(res.data[0].bio)
+        setUpdatedPublication(res.data[0].publication)
+        setUpdatedAwards(res.data[0].awards)
+        setUpdatedConference(res.data[0].conference)
+        setUpdatedBookCh(res.data[0].bookChapters)
       })
       .catch((err) => console.log(err))
   }, [])
+
+  // console.log(updatedPublication)
 
   if (isLoading) {
     return <div>Loading</div>

@@ -27,8 +27,9 @@ export default function AddPublications(props) {
       .then((res) => {
         setIsLoading(false)
         props.closeModal()
-        setUpdatedPublication(res.data.publication)
-        console.log(res.data)
+        console.log(res)
+        setUpdatedPublication(res.data[0].publication)
+        // console.log(res.data)
       })
       .catch((err) => console.log(err))
   }

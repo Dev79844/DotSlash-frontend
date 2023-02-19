@@ -54,13 +54,9 @@ export default function Login(props) {
       })
       .then((res) => {
         setIsLoading(false)
-        // console.log(res.data)
-        localStorage.setItem("token", res.data.token)
-        navigate(`/profile/${res.data._id}`, {
-          state: {
-            data: res.data,
-          },
-        })
+        console.log(res.data)
+        // localStorage.setItem("token", res.data.token)
+        navigate(`/profile/${res.data.researcherID}`)
         //   props.closeModal()
       })
       .catch((err) => {

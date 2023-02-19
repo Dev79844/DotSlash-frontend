@@ -27,7 +27,7 @@ export default function AddBookCh(props) {
       .then((res) => {
         setIsLoading(false)
         props.closeModal()
-        setUpdatedBookCh(res.data.bookChapters)
+        setUpdatedBookCh(res.data[0].bookChapters)
         console.log(res.data)
       })
       .catch((err) => console.log(err))

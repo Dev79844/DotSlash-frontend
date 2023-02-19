@@ -27,7 +27,7 @@ export default function AddConferencePaper(props) {
       .then((res) => {
         setIsLoading(false)
         props.closeModal()
-        setUpdatedConference(res.data.conference)
+        setUpdatedConference(res.data[0].conference)
         console.log(res.data)
       })
       .catch((err) => console.log(err))
