@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 import Profile from "./Pages/Profile"
 import Home from "./Pages/Home"
-import Researchers from "./Pages/Researchers"
+import Recommend from "./Pages/Recommend"
 
 export default function App() {
   return (
@@ -12,7 +12,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile/:profileId" element={<Profile />} />
-          <Route path="/researchers" element={<Researchers />} />
+          <Route path="/recommend" element={<Recommend />} />
         </Routes>
       </BrowserRouter>
     </>

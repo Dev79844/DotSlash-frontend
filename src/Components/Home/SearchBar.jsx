@@ -1,6 +1,9 @@
+import axios from "axios"
 import React from "react"
+import {Link} from "react-router-dom"
 
-export default function SearchBar() {
+export default function SearchBar(props) {
+  const {handleRecommend, search, handleSearch} = props
   return (
     <div className="mt-6 flex gap-12 px-16 items-center">
       <form className="w-[80%]">
@@ -33,6 +36,8 @@ export default function SearchBar() {
             id="default-search"
             className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Search Government Grants"
+            value={search}
+            onChange={handleSearch}
           />
           <button
             type="submit"
@@ -44,12 +49,15 @@ export default function SearchBar() {
       </form>
 
       <div>
-        <button
-          type="submit"
-          className="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-3"
-        >
-          Recommend Grants
-        </button>
+        <Link to={"/recommend"}>
+          <button
+            type="submit"
+            className="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-3"
+            // onClick={handleRecommend}
+          >
+            Recommend Grants
+          </button>
+        </Link>
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import React from "react"
 import Modal from "react-modal"
+import {Link} from "react-router-dom"
 import Login from "./Login"
 
 export default function Navbar() {
@@ -30,9 +31,11 @@ export default function Navbar() {
   return (
     <>
       <div className="flex justify-between px-16 py-1 text-2xl mt-8">
-        <h1 className="font-bold text-3xl">
-          Only<span className="text-secondary">Grants</span>
-        </h1>
+        <Link to={"/"}>
+          <h1 className="font-bold text-3xl">
+            Only<span className="text-secondary">Grants</span>
+          </h1>
+        </Link>
         <h1 className="cursor-pointer" onClick={openModal}>
           Login
         </h1>
