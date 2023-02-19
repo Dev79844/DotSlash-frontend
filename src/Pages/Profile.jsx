@@ -5,8 +5,6 @@ import Publications from "../Components/Profile/Publications"
 import Awards from "../Components/Profile/Awards"
 import ConferenceJournals from "../Components/Profile/ConferenceJournals"
 import BookChapter from "../Components/Profile/BookChapter"
-import Contact from "../Components/Profile/Contact"
-import {useLocation} from "react-router-dom"
 import {useParams} from "react-router-dom"
 import axios from "axios"
 
@@ -15,6 +13,7 @@ export default function Profile() {
 
   const {profileId} = useParams()
 
+  const [res, setRes] = React.useState()
   const [updatedAbout, setUpdatedAbout] = React.useState("")
   const [updatedPublication, setUpdatedPublication] = React.useState([])
   const [updatedAwards, setUpdatedAwards] = React.useState([])
@@ -33,6 +32,7 @@ export default function Profile() {
       })
       .then((res) => {
         setIsLoading(false)
+        setRes(res.data[0])
         console.log(res.data[0])
         setUpdatedAbout(res.data[0].bio)
         setUpdatedPublication(res.data[0].publication)
@@ -43,14 +43,15 @@ export default function Profile() {
       .catch((err) => console.log(err))
   }, [])
 
-  // console.log(updatedPublication)
+  console.log(res)
 
   if (isLoading) {
     return <div>Loading</div>
   } else {
     return (
       <div className="font-Roboto">
-        <ProfHeader />
+        {res === undefined ? null : <ProfHeader data={res} />}
+
         <div className="px-28">
           <About
             updatedAbout={updatedAbout}
@@ -81,7 +82,6 @@ export default function Profile() {
             setUpdatedBookCh={setUpdatedBookCh}
           />
           <hr className="mt-5 bg-gray-400 h-[2px]" />
-          <Contact />
         </div>
       </div>
     )
