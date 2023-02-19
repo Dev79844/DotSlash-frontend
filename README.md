@@ -6,9 +6,9 @@
 - ReactJS
 - TailwindCSS
 
-### ![Backend repo](https://github.com/Dev79844/DotSlash-backend)
+## [Backend repo](https://github.com/Dev79844/DotSlash-backend)
 
 ## Team:
-- ![Dev Parikh](https://github.com/dev79844)
-- ![Preet Sojitra](https://github.com/Preet-Sojitra)
-- ![Jaivik Jariwala](https://github.com/Jaivik-Jariwala)
+- [Dev Parikh](https://github.com/dev79844)
+- [Preet Sojitra](https://github.com/Preet-Sojitra)
+- [Jaivik Jariwala](https://github.com/Jaivik-Jariwala)
